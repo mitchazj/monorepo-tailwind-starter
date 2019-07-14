@@ -1,0 +1,22 @@
+{
+  "name": "monorepo",
+  "version": 2,
+  "builds": [
+    { "src": "www/package.json", "use": "@now/next" },
+    { "src": "api/node/*.js", "use": "@now/node" }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/www/$1",
+      "headers": {
+        "x-request-path": "$1"
+      }
+    }
+  ],
+  "regions": ["gru1", "hnd1", "iad1", "sfo1"]
+}
