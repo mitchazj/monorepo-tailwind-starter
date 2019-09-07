@@ -1,10 +1,7 @@
 {
   "name": "monorepo-starter",
   "version": 2,
-  "builds": [
-    { "src": "www/package.json", "use": "@now/next" },
-    { "src": "api/node/*.js", "use": "@now/node" }
-  ],
+  "builds": [{ "src": "www/package.json", "use": "@now/next" }, { "src": "api/v1/**/*.js", "use": "@now/node" }],
   "routes": [
     {
       "src": "/api/(.*)",
